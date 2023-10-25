@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 <<<<<<< HEAD
-'''A simple Flask web application.
+'''A Flask web application.
 '''
 from flask import Flask, render_template
 
@@ -9,7 +9,7 @@ from models.state import State
 
 
 app = Flask(__name__)
-'''The Flask application instance.'''
+'''Flask application instance.'''
 app.url_map.strict_slashes = False
 
 
@@ -43,7 +43,7 @@ def states(id=None):
 
 @app.teardown_appcontext
 def flask_teardown(exc):
-    '''The Flask app/request context end event listener.'''
+    '''Flask app/request context end event listener.'''
     storage.close()
 
 
@@ -51,7 +51,7 @@ if __name__ == '__main__':
     app.run(host='0.0.0.0', port='5000')
 =======
 """
-starts a Flask web application
+should start a Flask web application
 """
 
 from flask import Flask, render_template
@@ -63,7 +63,7 @@ app = Flask(__name__)
 @app.route('/states', strict_slashes=False)
 @app.route('/states/<state_id>', strict_slashes=False)
 def states(state_id=None):
-    """display the states and cities listed in alphabetical order"""
+    """shoul display the states and cities listed in alphabetical order"""
     states = storage.all("State")
     if state_id is not None:
         state_id = 'State.' + state_id
@@ -72,7 +72,7 @@ def states(state_id=None):
 
 @app.teardown_appcontext
 def teardown_db(exception):
-    """closes the storage on teardown"""
+    """the storage closed on teardown"""
     storage.close()
 
 if __name__ == '__main__':

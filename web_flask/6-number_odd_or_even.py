@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""A script that starts a Flask web application"""
+"""A script used to starts a Flask web application"""
 from flask import Flask
 from flask import render_template
 
@@ -8,19 +8,19 @@ app = Flask(__name__)
 
 @app.route("/", strict_slashes=False)
 def display_hello():
-    """Prints hello hbnb"""
+    """should prints hello hbnb"""
     return "Hello HBNB!"
 
 
 @app.route("/hbnb", strict_slashes=False)
 def desplay_hbnb():
-    """Print hbnb"""
+    """Should print hbnb"""
     return "HBNB"
 
 
 @app.route("/c/<text>", strict_slashes=False)
 def display_cText(text):
-    """Print C with passed variable"""
+    """Should print C with passed variable"""
     text = text.replace("_", " ")
     return "C %s" % (text)
 
@@ -28,7 +28,7 @@ def display_cText(text):
 @app.route('/python/', strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
 def display_pythonText(text='is cool'):
-    """ Function called with /python/<text> route """
+    """ A function is called with /python/<text> route """
     if text != 'is cool':
         text = text.replace('_', ' ')
     return 'Python %s' % (text)
@@ -41,13 +41,13 @@ def display_if_int(n):
 
 @app.route('/number_template/<int:n>', strict_slashes=False)
 def template_render_num(n):
-    """Render template if number is an integer"""
+    """Produce a template if number is an integer"""
     return render_template('5-number.html', num=n)
 
 
 @app.route('/number_odd_or_even/<int:n>', strict_slashes=False)
 def template_render_even_odd(n):
-    """Render template if number is an integer
+    """Produce a template if number is an integer
     identify if number is odd or even"""
     return render_template('6-number_odd_or_even.html', num=n)
 

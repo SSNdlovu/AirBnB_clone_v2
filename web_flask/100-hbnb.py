@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''A simple Flask web application.
+'''Simple Flask web application.
 '''
 from flask import Flask, render_template, Markup
 
@@ -10,13 +10,13 @@ from models.state import State
 
 
 app = Flask(__name__)
-'''The Flask application instance.'''
+'''Flask application instance.'''
 app.url_map.strict_slashes = False
 
 
 @app.route('/hbnb')
 def hbnb():
-    '''The hbnb page.'''
+    '''hbnb page.'''
     all_states = list(storage.all(State).values())
     amenities = list(storage.all(Amenity).values())
     places = list(storage.all(Place).values())
@@ -37,7 +37,7 @@ def hbnb():
 
 @app.teardown_appcontext
 def flask_teardown(exc):
-    '''The Flask app/request context end event listener.'''
+    '''Flask app/request context end event listener.'''
     storage.close()
 
 
